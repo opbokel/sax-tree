@@ -64,12 +64,15 @@ public abstract class SaxTreeNodeBase extends DefaultHandler implements
     }
 
     public void clearChildren() {
-        this.children = new HashMap<>();
+        this.children.clear();
     }
 
     public void removeNodeFromTree() {
         clearChildren();
-        this.parent = null;
+        if (this.parent != null) {
+            this.parent.removeChildren(this);
+            this.parent = null;
+        }
     }
 
     public SaxTreeNode cloneUnbonded(boolean deepCopy) {
