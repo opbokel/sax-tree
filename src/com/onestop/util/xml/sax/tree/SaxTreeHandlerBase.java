@@ -7,14 +7,14 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public abstract class SaxTreeHandlerBase<T> extends DefaultHandler
-        implements SaxTreeHandler<T> {
+public abstract class SaxTreeHandlerBase<R> extends DefaultHandler
+        implements SaxTreeHandler<R> {
 
     protected SaxTreeNode currentNode;
 
     protected SaxTreeNode firstNode;
 
-    protected T result;
+    protected R result;
 
     protected Collection<Exception> exceptions = new ArrayList<>();
 
@@ -83,7 +83,7 @@ public abstract class SaxTreeHandlerBase<T> extends DefaultHandler
         return this.exceptions;
     }
 
-    public T getResult() {
+    public R getResult() {
         return this.result;
     }
 
