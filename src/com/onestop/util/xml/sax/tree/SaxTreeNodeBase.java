@@ -64,7 +64,7 @@ public abstract class SaxTreeNodeBase extends DefaultHandler implements
     }
 
     public void clearChildren() {
-        this.children.clear();
+        this.children = new HashMap<String, SaxTreeNode>();
     }
 
     public void removeNodeFromTree() {
