@@ -97,9 +97,9 @@ Using the Sax Parser:
 
     }
 ```
-The printed result:
-	name: Mr. Nobody - age: 33
-	name: John Doe - age: 28
+The printed result:<BR>
+name: Mr. Nobody - age: 33 <BR>
+name: John Doe - age: 28
 	
 
 Fell free to contact me at GitHub any time. I will be glad to receive code contributions or answer questions.
