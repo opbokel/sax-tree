@@ -53,8 +53,8 @@ A very simple example of a simple XML parsing:
 
             });
 
-            // Two nodes are added to the person, the name and the age. The read
-            // value is passed to the method parse
+            // Two nodes are added to the person, the name and the age. 
+            // The read value is passed to the parse method
             // You just need to add the nodes that you want to process
             personNode.putChildren(new SaxTreeNodeQNameImpl("name") {
                 public void parseValue(String value) {
