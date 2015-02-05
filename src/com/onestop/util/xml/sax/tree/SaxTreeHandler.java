@@ -86,7 +86,7 @@ public interface SaxTreeHandler<R> extends ContentHandler {
      * @return The exceptions generated and captured by the addException method
      */
     public Collection<Exception> getExceptions();
-    
+
     /**
      * Read the attributes values
      * 
@@ -98,6 +98,6 @@ public interface SaxTreeHandler<R> extends ContentHandler {
      *         when it is not possible to read the property
      */
     public String[] getAttributeValues(Attributes attributes,
-           String... attQNames);
+            String... attQNames);
 
 }

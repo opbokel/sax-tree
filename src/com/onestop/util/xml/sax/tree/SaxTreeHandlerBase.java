@@ -7,8 +7,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public abstract class SaxTreeHandlerBase<R> extends DefaultHandler
-        implements SaxTreeHandler<R> {
+public abstract class SaxTreeHandlerBase<R> extends DefaultHandler implements
+        SaxTreeHandler<R> {
 
     protected SaxTreeNode currentNode;
 
@@ -86,7 +86,7 @@ public abstract class SaxTreeHandlerBase<R> extends DefaultHandler
     public R getResult() {
         return this.result;
     }
-    
+
     public String[] getAttributeValues(Attributes attributes,
             String... attQNames) {
         String[] values = new String[attQNames.length];

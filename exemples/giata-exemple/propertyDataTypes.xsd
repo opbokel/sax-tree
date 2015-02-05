@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+	<xs:import namespace="http://www.w3.org/1999/xlink"
+		schemaLocation="../xlink.xsd" />
+	<xs:complexType name="propertyListEntryType">
+		<xs:attribute name="giataId" type="xs:int" use="required" />
+		<xs:attribute name="lastUpdate" type="xs:dateTime" />
+		<xs:attribute name="movedTo" type="xs:int" />
+		<xs:attribute name="movedOn" type="xs:dateTime" />
+		<xs:attribute name="deletedOn" type="xs:dateTime" />
+		<xs:attribute ref="xlink:href" use="required" />
+	</xs:complexType>
+	<xs:complexType name="propertyDetailsType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="alternativeName" type="xs:string"  minOccurs="0" />
+			<xs:element name="city">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="cityId" type="xs:int" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="country" type="xs:string" />
+			<xs:element name="addresses" type="addressesType" minOccurs="0" />
+			<xs:element name="phones" type="phonesType" minOccurs="0" />
+			<xs:element name="emails" type="emailsType" minOccurs="0"/>
+			<xs:element name="urls" type="urlsType" minOccurs="0" />
+			<xs:element name="geoCodes" type="geoCodesType" minOccurs="0" />
+			<xs:element name="propertyCodes" type="propertyCodesType" minOccurs="0" />
+			<xs:element name="chains" type="chainsType" minOccurs="0" />
+			<xs:element name="ghgml" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="lastUpdate" type="xs:date" />
+					<xs:attribute ref="xlink:href" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="giataId" type="xs:int" use="required" />
+		<xs:attribute name="lastUpdate" type="xs:dateTime" />
+	</xs:complexType>
+	<xs:complexType name="addressesType">
+		<xs:sequence>
+			<xs:element name="address" type="addressType" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="addressLine" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="addressLineNumber" type="xs:int" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="street" type="xs:string" minOccurs="0" />
+			<xs:element name="streetNumber" type="xs:string" minOccurs="0" />
+			<xs:element name="cityName" type="xs:string" minOccurs="0" />
+			<xs:element name="locality" type="xs:string" minOccurs="0" />
+			<xs:element name="postalCode" type="xs:string" minOccurs="0" />
+			<xs:element name="stateProv" type="xs:string" minOccurs="0" />
+			<xs:element name="poBox" type="xs:string" minOccurs="0" />
+			<xs:element name="additionalAddressInformation" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="country" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="phonesType">
+		<xs:sequence>
+			<xs:element name="phone" type="phoneType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="phoneType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="countryAccessCode" type="xs:string" />
+				<xs:attribute name="areaCityCode" type="xs:string" />
+				<xs:attribute name="phoneNumber" type="xs:string" />
+				<xs:attribute name="extension" type="xs:string" />
+				<xs:attribute name="tech">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="voice" />
+							<xs:enumeration value="fax" />
+							<xs:enumeration value="mobile" />
+							<xs:enumeration value="other" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="use">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="reservations" />
+							<xs:enumeration value="office" />
+							<xs:enumeration value="other" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="isDefault" type="xs:boolean" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="emailsType">
+		<xs:sequence>
+			<xs:element name="email" type="emailType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="emailType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="isDefault" type="xs:boolean" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="urlsType">
+		<xs:sequence>
+			<xs:element name="url" type="urlType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="urlType">
+		<xs:simpleContent>
+			<xs:extension base="xs:anyURI" />
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="geoCodesType">
+		<xs:sequence>
+			<xs:element name="geoCode" type="geoCodeType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="geoCodeType">
+		<xs:sequence>
+			<xs:element name="latitude" type="xs:float" />
+			<xs:element name="longitude" type="xs:float" />
+			<xs:element name="altitude" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="unit" type="xs:string" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="polygon" type="polygonType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="accuracy">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="premise" />
+					<xs:enumeration value="address" />
+					<xs:enumeration value="street" />
+					<xs:enumeration value="locality" />
+					<xs:enumeration value="city" />
+					<xs:enumeration value="unknown" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="polygonType">
+		<xs:sequence>
+			<xs:element name="coordinates">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="coordinate" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="latitude" type="xs:float" />
+									<xs:element name="longitude" type="xs:float" />
+									<xs:element name="altitude" minOccurs="0">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:int">
+													<xs:attribute name="unit" type="xs:string" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="propertyCodesType">
+		<xs:sequence>
+			<xs:element name="provider" maxOccurs="unbounded">
+				<xs:complexType >
+					<xs:sequence>
+						<xs:element name="code" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="value" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:simpleContent>
+												<xs:extension base="xs:string">
+													<xs:attribute name="name" type="xs:string" />
+												</xs:extension>
+											</xs:simpleContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="providerCode" type="xs:string" />
+					<xs:attribute name="providerId" type="xs:string" />
+					<xs:attribute name="providerName" type="xs:string" />
+					<xs:attribute name="providerType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="crs" />
+							<xs:enumeration value="gds" />
+							<xs:enumeration value="tourOperator" />
+							<xs:enumeration value="other" />
+						</xs:restriction>
+					</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chainsType">
+		<xs:sequence>
+			<xs:element name="chain" type="chainType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chainType">
+		<xs:attribute name="chainId" type="xs:int" />
+		<xs:attribute name="chainCode" type="xs:string" />
+		<xs:attribute name="chainName" type="xs:string" />
+		<xs:attribute name="fromDate" type="xs:date" />
+		<xs:attribute name="toDate" type="xs:date" />
+	</xs:complexType>
+</xs:schema>
