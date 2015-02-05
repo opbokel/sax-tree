@@ -4,16 +4,16 @@ A light weight, open source and fast XML lib that helps using the Java SAX parse
 A very simple example of a simple XML parsing:
 ```xml
 <root>
-    <people>
+   <people>
        <person>
 	        <name>Mr. Nobody</name>
             <age>33</age>
-	 </person>
-	 <person>
+	  </person>
+	  <person>
             <name>John Doe</name>
             <age>28</age>
-	</person>
-    </people>
+      </person>
+   </people>
 </root>
 ```
 
