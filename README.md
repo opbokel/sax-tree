@@ -18,7 +18,7 @@ A very simple example of a simple XML parsing:
 ```
 
 ```java
-    public static class GiataLinkSaxHandler extends
+    public static class ExampleSaxHandler extends
             SaxTreeHandlerBase<Collection<Person>> {
 
         private Person currentPerson;
@@ -82,7 +82,7 @@ Using the Sax Parser:
 ```java
     public static void main(String[] args) throws ParserConfigurationException,
             SAXException, IOException {
-        ExempleSaxHandler handler = new ExempleSaxHandler();
+        ExampleSaxHandler handler = new ExampleSaxHandler();
         handler.init();
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 
