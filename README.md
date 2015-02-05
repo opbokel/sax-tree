@@ -1,7 +1,8 @@
-A open source XML lib that helps using the Java SAX parser. The idea is to use inversion of control with a tree representation of the XML document. For each node the engine changes the handler responsible for processing that node and use it to execute the correspondent SAX actions, making it much more organized since each handler is self contained. A full example of a complex XML parsing and the Java code of this example is provided in the examples folder.
+A light weight, open source and fast XML lib that helps using the Java SAX parser. The idea is to use inversion of control with a tree representation of the XML document. For each node the engine changes the handler responsible for processing that node and use it to execute the correspondent SAX actions, making it much more organized since each handler is self contained. A full example of a complex XML parsing and the Java code of this example is provided in the examples folder.
 
 
 A very simple example of a simple XML parsing:
+```xml
 <root>
     <people>
 	     <person>
@@ -14,7 +15,9 @@ A very simple example of a simple XML parsing:
 	     </person>
     </people>
 </root>
+```
 
+```java
     public static class GiataLinkSaxHandler extends
             SaxTreeHandlerBase<Collection<Person>> {
 
@@ -74,4 +77,4 @@ A very simple example of a simple XML parsing:
             result = new LinkedList<>();
         }
     }
-
+```
