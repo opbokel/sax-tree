@@ -8,8 +8,8 @@ A very simple example of a simple XML parsing:
        <person>
 	        <name>Mr. Nobody</name>
             <age>33</age>
-	  </person>
-	  <person>
+	   </person>
+	   <person>
             <name>John Doe</name>
             <age>28</age>
       </person>
