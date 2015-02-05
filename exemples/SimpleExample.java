@@ -26,7 +26,7 @@ public class SimpleExample {
         public int age;
     }
 
-    public static class ExempleSaxHandler extends
+    public static class ExampleSaxHandler extends
             SaxTreeHandlerBase<Collection<Person>> {
 
         private Person currentPerson;
@@ -93,7 +93,7 @@ public class SimpleExample {
 
     public static void main(String[] args) throws ParserConfigurationException,
             SAXException, IOException {
-        ExempleSaxHandler handler = new ExempleSaxHandler();
+        ExampleSaxHandler handler = new ExampleSaxHandler();
         handler.init();
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 
