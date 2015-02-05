@@ -78,3 +78,28 @@ A very simple example of a simple XML parsing:
         }
     }
 ```
+Using the Sax Parser:
+```java
+    public static void main(String[] args) throws ParserConfigurationException,
+            SAXException, IOException {
+        ExempleSaxHandler handler = new ExempleSaxHandler();
+        handler.init();
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+
+        SAXParser saxParser = saxParserFactory.newSAXParser();
+        //EXAMPLE_XML = A String with the XML above 
+        InputSource iSource = new InputSource(new StringReader(EXAMPLE_XML));
+        saxParser.parse(iSource, handler);
+
+        for (Person p : handler.getResult()) {
+            System.out.println("name: " + p.name + " - age: " + p.age);
+        }
+
+    }
+```
+The printed result:
+	name: Mr. Nobody - age: 33
+	name: John Doe - age: 28
+	
+
+Fell free to contact me at GitHub any time. I will be glad to receive code contributions or answer questions.
