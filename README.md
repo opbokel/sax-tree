@@ -18,6 +18,11 @@ A very simple example of a simple XML parsing:
 ```
 
 ```java
+    public static class Person {
+        public String name;
+        public int age;
+    }
+
     public static class ExampleSaxHandler extends
             SaxTreeHandlerBase<Collection<Person>> {
 
