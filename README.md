@@ -7,7 +7,7 @@ A very simple example of a simple XML parsing:
     <people>
 	     <person>
 		      <name>Mr. Nobody</name>
-	      	<age>33</age>
+	      	      <age>33</age>
 	     </person>
 	     <person>
 		      <name>John Doe</name>
