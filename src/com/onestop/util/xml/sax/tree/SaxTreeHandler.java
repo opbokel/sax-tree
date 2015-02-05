@@ -86,5 +86,18 @@ public interface SaxTreeHandler<R> extends ContentHandler {
      * @return The exceptions generated and captured by the addException method
      */
     public Collection<Exception> getExceptions();
+    
+    /**
+     * Read the attributes values
+     * 
+     * @param attributes
+     *            XML attributes, passed in the start node method
+     * @param attQNames
+     *            The q name of the attributes
+     * @return A array of the same size and order of the attQNames with null
+     *         when it is not possible to read the property
+     */
+    public String[] getAttributeValues(Attributes attributes,
+           String... attQNames);
 
 }
