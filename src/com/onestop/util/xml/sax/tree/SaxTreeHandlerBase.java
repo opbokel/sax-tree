@@ -86,5 +86,28 @@ public abstract class SaxTreeHandlerBase<R> extends DefaultHandler
     public R getResult() {
         return this.result;
     }
+    
+    public String[] getAttributeValues(Attributes attributes,
+            String... attQNames) {
+        String[] values = new String[attQNames.length];
+        for (int n = 0; n < attQNames.length; n++) {
+            int index = attributes.getIndex(attQNames[n]);
+            if (index < 0) {
+                values[n] = null;
+            } else {
+                values[n] = attributes.getValue(index);
+            }
+        }
+        return values;
+    }
+
+    public boolean toBoolean(String value) {
+        if (value == null) {
+            return false;
+        } else {
+            return "1".equals(value)
+                    || Boolean.parseBoolean(value.toLowerCase());
+        }
+    }
 
 }
