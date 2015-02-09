@@ -78,7 +78,7 @@ public class SimpleExample {
             return rootNode;
         }
 
-        // Prepares the parser for reuse, it is called also in the first
+        // Prepares the parser for reuse, it is called also before the first
         // initialization
         @Override
         public void clear() {
